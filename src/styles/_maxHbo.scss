@@ -1,0 +1,40 @@
+@use 'variables';
+
+.maxHbo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &-container {
+        display: flex;
+        padding: 30px;
+
+        img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .maxHbo-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 450px;
+            margin-left: 30px;
+
+            a {
+                button {
+                    background-color: variables.$background_button_color;
+                    color: variables.$mainTextColor;
+                    text-transform: uppercase;
+                    padding: 10px 25px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

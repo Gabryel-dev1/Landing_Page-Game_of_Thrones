@@ -1,0 +1,22 @@
+{
+  "name": "landing_page-game_of_thrones",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000L\u0000a\u0000n\u0000d\u0000i\u0000n\u0000g\u0000_\u0000P\u0000a\u0000g\u0000e\u0000-\u0000G\u0000a\u0000m\u0000e\u0000_\u0000o\u0000f\u0000_\u0000T\u0000h\u0000r\u0000o\u0000n\u0000e\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.83.1"
+  }
+}

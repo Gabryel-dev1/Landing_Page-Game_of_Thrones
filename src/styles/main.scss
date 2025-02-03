@@ -1,0 +1,111 @@
+// Importação de módulos
+@use 'hero';
+@use 'history';
+@use 'variables';
+@use 'houses';
+@use 'characters';
+@use 'dragons';
+@use 'maxHbo';
+@use 'footer';
+
+html {
+    scroll-behavior: smooth;
+}
+
+// Reset básico
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Configurações globais
+body {
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.65px;
+    background-color: variables.$background_color;
+    color: variables.$normalTextColor;
+}
+
+.container {
+    padding: 2% 5%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+// Mixin para título
+@mixin title($fontSize: 24px, $color: variables.$mainTextColor, $weight: 400) {
+    font-family: "Cinzel Decorative", serif;
+    font-size: $fontSize;
+    font-weight: $weight;
+    font-style: normal;
+    color: $color;
+}
+
+// Mixin para texto
+@mixin text($fontSize: 16px, $color: variables.$normalTextColor, $weight: 300) {
+    font-size: $fontSize;
+    font-family: "Merriweather", serif;
+    font-weight: $weight;
+    letter-spacing: 0.65px;
+    color: $color;
+}
+
+// Estilo para títulos
+.title {
+    @include title();
+}
+
+.title--small {
+    @include title(16px);
+}
+
+// Estilo para textos
+.text {
+    @include text();
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.text--small--footer {
+    @include text(12px, variables.$normalSmallTextColor);
+}
+
+.text--link {
+    @include text(16px, variables.$textLinkColor, 400);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+// Estilo para parágrafos
+p {
+    @include text();
+}
+
+// Estilo para cabeçalhos
+h1 {
+    @include title();
+}
+
+// Responsividade
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10%;
+    }
+
+    .title {
+        @include title(20px);
+    }
+
+    .text {
+        @include text(14px);
+    }
+}

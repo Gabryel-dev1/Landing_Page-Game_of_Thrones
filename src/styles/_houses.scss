@@ -1,0 +1,108 @@
+@use 'variables';
+
+.houses {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    .navigation {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+
+        img {
+            width: 70px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .houses-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+
+        .houses-description {
+            width: 100%;
+            max-width: 400px;
+            padding-right: 30px;
+
+            h1 {
+                margin-bottom: 20px;
+            }
+        }
+
+        .carrossel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: 40px; // Ajuste conforme necessário
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+            }
+
+            &::before {
+                left: 0;
+                background: linear-gradient(to right, variables.$background_color, transparent);
+            }
+        
+            &::after {
+                right: 0;
+                background: linear-gradient(to left, variables.$background_color, transparent);
+            }
+
+            &__container {
+                display: flex;
+                gap: 40px;
+                justify-content: flex-start;
+                transition: transform 0.5s ease-in-out;
+                transform: translateX(0);
+                padding: 0 3%;
+
+                .card {
+                    background-color: variables.$background_card_color;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid variables.$mainTextColor;
+                    border-radius: 5px;
+                    width: 280px;
+                    flex-shrink: 0; // Evita que as cartas encolham no carrossel
+
+                    img {
+                        width: auto;
+                        height: 180px;
+                        margin: 0 auto;
+                    }
+
+                    h2 {
+                        margin: 10px auto;
+                    }
+
+                    p {
+                        margin-bottom: 5px;
+
+                        span {
+                            color: variables.$mainTextColor;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

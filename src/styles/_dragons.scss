@@ -1,0 +1,187 @@
+@use 'variables';
+
+.dragons {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+  height: 80vh;
+
+  &-description {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  &-cards {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 100%; // Define altura fixa para os cards ficarem bem posicionados
+  }
+
+  .card {
+    position: absolute;
+    margin: 10px;
+    display: flex;
+    width: auto;
+    height: 80%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid variables.$mainTextColor;
+    transition: transform 0.5s ease, z-index 0.3s ease;
+    cursor: normal;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        linear-gradient(to right, transparent 30%, variables.$background_card_color 60%),
+        linear-gradient(to left, transparent 50%, variables.$background_card_color 96%);
+      z-index: 0;
+    }
+
+    .card-description {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      z-index: 2;
+
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  // Posicionamento dos cards
+  .card--1 {
+    scale: 0.8;
+    right: 40%;
+    z-index: 1;
+  }
+
+  .card--2 {
+    scale: 0.9;
+    right: 20%;
+    z-index: 2;
+  }
+
+  .card--3 {
+    scale: 1;
+    z-index: 3;
+  }
+
+  // Efeito ao passar o mouse
+  .card:hover {
+    z-index: 10;
+    transform: scale(1.1);
+  }
+}
+
+
+// @use 'variables';
+
+// .dragons {
+//     display: grid;
+//     grid-template-columns: 1fr 2fr;
+//     gap: 20px;
+
+//     &-description {
+//         max-width: 100%;
+//     }
+
+//     &-cards {
+
+//         display: flex;
+//         width: 100%;
+
+//         .card {
+//             position: relative;
+//             margin: 10px;
+//             display: flex;
+//             width: 20vw;
+//             height: 40vh; 
+//             overflow: hidden;
+//             border-radius: 10px; 
+//             border: 1px solid variables.$mainTextColor;
+
+//             img {
+//               width: 70%;
+//               height: 100%;
+//               object-fit: cover;
+//               display: block;
+//             }
+
+//             &::before {
+//                 content: "";
+//                 position: absolute;
+//                 top: 0;
+//                 left: 0;
+//                 width: 100%;
+//                 height: 100%;
+//                 background: 
+//                   linear-gradient(to right, transparent 30%, variables.$background_card_color 60%),
+//                   linear-gradient(to left, transparent 50%, variables.$background_card_color 96%);
+//                 z-index: 0; 
+//               }
+
+//             .card-description {
+//               position: absolute;
+//               top: 0;
+//               right: 0;
+//               width: 50%; 
+//               height: 100%;
+//               display: flex;
+//               flex-direction: column;
+//               justify-content: center;
+//               align-items: flex-start;
+//               padding: 20px;
+//               z-index: 2; 
+
+//               h2 {
+//                 margin-bottom: 10px;
+//               }
+//             }
+//           }
+
+//           .card--1 {
+//             position: relative;
+//             width: 20vw;
+//             height: 40vh;
+//             z-index: 1;
+//         }
+
+//         .card--2 {
+//             position: relative;
+//             width: 25vw;
+//             height: 45vh;
+//             z-index: 2;
+//         }
+
+//         .card--3 {
+//             position: relative;
+//             width: 30vw;
+//             height: 50vh;
+//             z-index: 3;
+//         }
+//     }
+// }

@@ -49,7 +49,76 @@
     
         }
     }
+}
 
+@media (max-width: 1024px) {
+    .history {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
 
-    
+        img {
+            width: 70%;
+            max-width: 400px;
+        }
+
+        .right-side {
+            padding: 15px;
+
+            .history-throne {
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+
+                .history-throne-description {
+                    align-items: center;
+
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .history {
+        img {
+            width: 90%;
+        }
+
+        .right-side {
+            padding: 10px;
+
+            .history-throne {
+                img {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .history {
+        img {
+            width: 100%;
+        }
+
+        .right-side {
+            padding: 5px;
+
+            .history-throne {
+                img {
+                    width: 80%;
+                }
+            }
+        }
+    }
 }

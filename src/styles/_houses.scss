@@ -106,3 +106,118 @@
         }
     }
 }
+
+@media (max-width: 1024px) {
+    .houses {
+        align-items: center; // Centraliza os elementos
+
+        .houses-content {
+            flex-direction: column; // Empilha os elementos no mobile
+            align-items: center;
+
+            .houses-description {
+                max-width: 90%;
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .carrossel {
+                width: 100%;
+
+                &__container {
+                    gap: 20px; // Reduz o espaçamento entre os cards
+                    padding: 0 5%;
+                }
+
+                .card {
+                    width: 250px; // Reduz o tamanho dos cards
+                }
+            }
+        }
+    }
+
+    .navigation {
+        gap: 10px; // Reduz o espaçamento entre os ícones
+
+        img {
+            width: 60px; // Reduz levemente o tamanho dos ícones
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .houses-content {
+        .houses-description {
+            max-width: 100%;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .carrossel {
+            width: 100%;
+
+            &__container {
+                gap: 10px;
+                padding: 0 10px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+
+                .card {
+                    width: 220px;
+                    padding: 10px;
+
+                    img {
+                        height: 150px;
+                    }
+
+                    h2 {
+                        font-size: 16px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .navigation {
+        img {
+            width: 50px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .houses-content {
+        .carrossel {
+            &__container {
+                gap: 5px;
+
+                .card {
+                    width: 180px;
+                    padding: 8px;
+
+                    img {
+                        height: 130px;
+                    }
+
+                    h2 {
+                        font-size: 14px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .navigation {
+        img {
+            width: 45px;
+        }
+    }
+}

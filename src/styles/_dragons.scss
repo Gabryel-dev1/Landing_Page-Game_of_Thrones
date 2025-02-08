@@ -6,7 +6,6 @@
   align-items: center;
   gap: 20px;
   padding: 50px;
-  height: 80vh;
 
   &-description {
     max-width: 100%;
@@ -17,21 +16,20 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: end;
-    height: 100%; // Define altura fixa para os cards ficarem bem posicionados
+    justify-content: center;
+    height: 400px;
+    width: 100%;
   }
 
   .card {
     position: absolute;
-    margin: 10px;
-    display: flex;
-    width: auto;
-    height: 80%;
+    width: 320px;
+    height: 100%;
     overflow: hidden;
     border-radius: 10px;
     border: 1px solid variables.$mainTextColor;
     transition: transform 0.5s ease, z-index 0.3s ease;
-    cursor: normal;
+    cursor: pointer;
 
     img {
       width: 100%;
@@ -47,9 +45,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background:
-        linear-gradient(to right, transparent 30%, variables.$background_card_color 60%),
-        linear-gradient(to left, transparent 50%, variables.$background_card_color 96%);
+      background: linear-gradient(to right, transparent 10%, variables.$background_card_color 50%);
       z-index: 0;
     }
 
@@ -57,7 +53,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 50%;
+      width: 70%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -72,116 +68,104 @@
     }
   }
 
-  // Posicionamento dos cards
+  // Posicionamento Dinâmico
   .card--1 {
-    scale: 0.8;
-    right: 40%;
+    transform: translateX(-50%) scale(0.8);
     z-index: 1;
+
+    &:hover {
+      transform: translateX(-50%) scale(0.9);
+      z-index: 10;
+    }
   }
 
   .card--2 {
-    scale: 0.9;
-    right: 20%;
+    transform: translateX(0%) scale(0.9);
     z-index: 2;
+
+    &:hover {
+      transform: translateX(0%) scale(1);
+      z-index: 10;
+    }
   }
 
   .card--3 {
-    scale: 1;
+    transform: translateX(50%) scale(1);
     z-index: 3;
-  }
 
-  // Efeito ao passar o mouse
-  .card:hover {
-    z-index: 10;
-    transform: scale(1.1);
+    &:hover {
+      transform: translateX(50%) scale(1.1);
+      z-index: 10;
+    }
   }
 }
 
+// Responsividade
+@media (max-width: 1024px) {
+  .dragons {
+    grid-template-columns: 1fr;
+    height: 100%;
 
-// @use 'variables';
 
-// .dragons {
-//     display: grid;
-//     grid-template-columns: 1fr 2fr;
-//     gap: 20px;
+    &-cards {
+      position: relative;
+      display: flex;
+      align-items: top;
+      justify-content: center;
+      height: 360px;
+      width: 100%;
 
-//     &-description {
-//         max-width: 100%;
-//     }
 
-//     &-cards {
+      .card {
+        width: 300px;
+      }
+    }
+  }
+}
 
-//         display: flex;
-//         width: 100%;
+@media (max-width: 720px) {
+  .dragons-cards {
+    flex-direction: column;
+    gap: 15px;
+    height: 400px;
 
-//         .card {
-//             position: relative;
-//             margin: 10px;
-//             display: flex;
-//             width: 20vw;
-//             height: 40vh; 
-//             overflow: hidden;
-//             border-radius: 10px; 
-//             border: 1px solid variables.$mainTextColor;
+    .card {
+      width: 250px;
 
-//             img {
-//               width: 70%;
-//               height: 100%;
-//               object-fit: cover;
-//               display: block;
-//             }
+      &-description {
+        padding: 10px;
+        width: 65%;
+      }
+    }
 
-//             &::before {
-//                 content: "";
-//                 position: absolute;
-//                 top: 0;
-//                 left: 0;
-//                 width: 100%;
-//                 height: 100%;
-//                 background: 
-//                   linear-gradient(to right, transparent 30%, variables.$background_card_color 60%),
-//                   linear-gradient(to left, transparent 50%, variables.$background_card_color 96%);
-//                 z-index: 0; 
-//               }
+    .card--1 {
+      transform: translate(-15%, -15%) scale(0.7);
+      z-index: 1;
 
-//             .card-description {
-//               position: absolute;
-//               top: 0;
-//               right: 0;
-//               width: 50%; 
-//               height: 100%;
-//               display: flex;
-//               flex-direction: column;
-//               justify-content: center;
-//               align-items: flex-start;
-//               padding: 20px;
-//               z-index: 2; 
+      &:hover {
+        transform: translate(-15%, -15%) scale(0.8);
+        z-index: 10;
+      }
+    }
 
-//               h2 {
-//                 margin-bottom: 10px;
-//               }
-//             }
-//           }
+    .card--2 {
+      transform: translate(0%, 0%) scale(0.8);
+      z-index: 2;
 
-//           .card--1 {
-//             position: relative;
-//             width: 20vw;
-//             height: 40vh;
-//             z-index: 1;
-//         }
+      &:hover {
+        transform: translate(0%, 0%) scale(0.9);
+        z-index: 10;
+      }
+    }
 
-//         .card--2 {
-//             position: relative;
-//             width: 25vw;
-//             height: 45vh;
-//             z-index: 2;
-//         }
+    .card--3 {
+      transform: translate(15%, 15%) scale(0.9);
+      z-index: 3;
 
-//         .card--3 {
-//             position: relative;
-//             width: 30vw;
-//             height: 50vh;
-//             z-index: 3;
-//         }
-//     }
-// }
+      &:hover {
+        transform: translate(15%, 15%) scale(1);
+        z-index: 10;
+      }
+    }
+  }
+}

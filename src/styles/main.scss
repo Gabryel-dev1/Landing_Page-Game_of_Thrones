@@ -1,7 +1,7 @@
 // Importação de módulos
+@use 'variables';
 @use 'hero';
 @use 'history';
-@use 'variables';
 @use 'houses';
 @use 'characters';
 @use 'dragons';
@@ -12,14 +12,12 @@ html {
     scroll-behavior: smooth;
 }
 
-// Reset básico
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-// Configurações globais
 body {
     font-family: "Merriweather", serif;
     font-size: 16px;
@@ -35,7 +33,6 @@ body {
     max-width: 1600px;
 }
 
-// Mixin para título
 @mixin title($fontSize: 24px, $color: variables.$mainTextColor, $weight: 400) {
     font-family: "Cinzel Decorative", serif;
     font-size: $fontSize;
@@ -44,8 +41,7 @@ body {
     color: $color;
 }
 
-// Mixin para texto
-@mixin text($fontSize: 16px, $color: variables.$normalTextColor, $weight: 300) {
+@mixin text($fontSize: 12px, $color: variables.$normalTextColor, $weight: 300) {
     font-size: $fontSize;
     font-family: "Merriweather", serif;
     font-weight: $weight;
@@ -53,7 +49,6 @@ body {
     color: $color;
 }
 
-// Estilo para títulos
 .title {
     @include title();
 }
@@ -62,7 +57,6 @@ body {
     @include title(16px);
 }
 
-// Estilo para textos
 .text {
     @include text();
 }
@@ -76,7 +70,7 @@ body {
 }
 
 .text--link {
-    @include text(16px, variables.$textLinkColor, 400);
+    @include text(12px, variables.$textLinkColor, 400);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -94,11 +88,12 @@ h1 {
 // Responsividade
 @media (max-width: 768px) {
     body {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .container {
-        padding: 10%;
+        padding: 8%;
+        max-width: 100%;
     }
 
     .title {
@@ -106,6 +101,24 @@ h1 {
     }
 
     .text {
-        @include text(14px);
+        @include text(9px);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+
+    .container {
+        padding: 6%;
+    }
+
+    .title {
+        @include title(18px);
+    }
+
+    .text {
+        @include text(px, variables.$normalTextColor, 300);
     }
 }
